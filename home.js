@@ -1,5 +1,17 @@
 const ruleButton = document.getElementById("ruleButton");
 const startGameButton = document.getElementById("startGameButton");
+const body = document.getElementById("body");
+const backgrounds = [
+    "./assets/cosmicCapital.png",
+    "./assets/cosmicCity.jpg",
+    "./assets/cosmicDoubleTower.png",
+    "./assets/cosmicValley.png",
+]
+
+setInterval(() => {
+    body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random()*4)]})`;
+}, 5000)
+
 // const homeAudio = new Audio("./assets/homeAudio.mp3");
 
 // homeAudio.volume = 0.3;

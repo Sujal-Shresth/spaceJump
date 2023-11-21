@@ -38,6 +38,7 @@ body{
     height: 100vh;
     align-items: center;
     justify-content: center;
+    transition: background-image 0.5s ease-in;
 }
 
 #emptySpace{
@@ -190,7 +191,7 @@ body{
 
 
 /*  Majority Styling for Selection Page */
-.blur-bg{
+#blur-bg{
     background-image: url('assets/cosmicCity.jpg');
     background-attachment: fixed;
     background-size: cover;
@@ -201,6 +202,7 @@ body{
     top: 0;
     filter: blur(3px);
     z-index:-1 ;
+    transition: background-image 0.5s ease-in;
 }
 
 #mapDiv{
@@ -274,9 +276,37 @@ body{
 
 /*  Majority Styling For Game Page  */
 #gamePageContainer{
-    
+    position: relative;
 }
 
+#blur-bg.blur{
+    background-position: center;
+    filter: brightness(75%) blur(3px);
+}
+
+#gameDiv{
+    height: 100vh;
+    width: 600px;
+    background-image: url('./assets/cosmicValley.png');
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#gameBgCover{
+    position: absolute;
+    height: 100%;
+    width: 600px;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.568);
+}
+
+#resultDiv{
+    text-align: center;
+    height: 40%;
+    justify-content: space-around;
+}
 
 /*  Button Styling  */
 .button {
@@ -415,7 +445,7 @@ body{
         font-size: 1.5rem;
     }
     .heading1{
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     #startGameDiv{
         position: absolute;
@@ -505,6 +535,15 @@ body{
     }
 }
 
+@media (max-width: 600px) {
+    #gameDiv{
+        width: 100vw;
+    }
+    
+    #gameBgCover{
+        width: 100vw;
+    }
+}
 @media (max-width: 426px){
     .button{
         font-size: 0.75rem;

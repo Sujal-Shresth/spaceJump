@@ -6,6 +6,18 @@ function removeBoxShadow(element) {
     element.style.boxShadow = "none";
 }
 
+const body = document.getElementById("body");
+const backgrounds = [
+    "./assets/cosmicCapital.png",
+    "./assets/cosmicCity.jpg",
+    "./assets/cosmicDoubleTower.png",
+    "./assets/cosmicValley.png",
+]
+
+setInterval(() => {
+    body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random()*4)]})`;
+}, 5000)
+
 startGameButton.addEventListener("click", () => {
     if(userName.value && nickName.value){
         location.href = "./selectionPage.html"

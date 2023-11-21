@@ -33,6 +33,17 @@ const mapDivs = document.getElementsByClassName("map-info");
 const stellerDivs = document.getElementsByClassName("steller-info");
 const startGameButton = document.getElementById("startGameButton");
 
+const body = document.getElementById("blur-bg");
+const backgrounds = [
+    "./assets/cosmicCapital.png",
+    "./assets/cosmicCity.jpg",
+    "./assets/cosmicDoubleTower.png",
+    "./assets/cosmicValley.png",
+]
+
+setInterval(() => {
+    body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random()*4)]})`;
+}, 5000)
 var selectedMapIndex = null;
 var selectedStellerIndex = null;
 selectionPageContainer.addEventListener("click", (e) => {
