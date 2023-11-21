@@ -76,18 +76,6 @@ body{
     right: -10%;
 }
 
-.floating1{
-    animation: floating1 3s ease-in-out infinite;
-}
-
-.floating2{
-    animation: floating2 3s ease-in-out infinite;
-}
-
-.floating3{
-    animation: floating3 3s ease-in-out infinite;
-}
-
 #startGameButtons p{
     font-size: 1.5rem;
     margin: 1.5rem;
@@ -101,24 +89,8 @@ body{
 }
 
 
-.button {
-    padding: 10px 20px;
-    font-size: 1.5rem;
-    color: #ffffff;
-    background-color: #565353;
-    border: none;
-    cursor: pointer;
-    border-radius: 0.25rem 1rem;
-    transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out, transform 0.3s ease-in-out;
-    margin: 1rem 0;
-}
 
-.button:hover {
-    transform: scale(1.2);
-    background: linear-gradient(45deg, #555, #747373);
-    border-radius: 1rem 0.25rem;
-} 
-
+/*  Majority Styling for Rules Page */
 .mid-right{
     position: absolute;
     height: 90%;
@@ -184,6 +156,117 @@ body{
     width: 50%;
 }
 
+
+
+/*  Majority Styling for Selection Page */
+.blur-bg{
+    background-image: url('assets/cosmicCity.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: left;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    filter: blur(3px);
+    z-index:-1 ;
+}
+
+#mapDiv{
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#stellerDiv{
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.outer-map-div, .outer-steller-div{
+    width: 250px;
+    height: 30vh;
+}
+
+.map-info, .steller-info{
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 1rem;
+    width: 75%;
+    background-color: #e6e6e667;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.steller-info{
+    text-wrap: nowrap;
+}
+.map-img, .steller-img{
+    height: 20vh;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+}
+
+#selectionPageContainer{
+    padding: 2vw;
+    width: 90vw;
+}
+
+.map-info:hover, .steller-info:hover{
+    transform: scale(1.125);
+    background-color: #ffffff00;;
+}
+
+.selected{
+    background-color: rgba(255, 217, 0, 0.279);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.selected:hover{
+    background-color: rgba(255, 217, 0, 0.523);
+}
+#selectionPageContainer h1{
+    margin: 2rem;
+}
+
+/*  Button Styling  */
+.button {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    background-color: #565353;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.25rem 1rem;
+    transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin: 1rem 0;
+}
+
+.button:hover {
+    transform: scale(1.2);
+    background: linear-gradient(45deg, #555, #747373);
+    border-radius: 1rem 0.25rem;
+} 
+
+
+
+/*  Animations  */
+.floating1{
+    animation: floating1 3s ease-in-out infinite;
+}
+
+.floating2{
+    animation: floating2 3s ease-in-out infinite;
+}
+
+.floating3{
+    animation: floating3 3s ease-in-out infinite;
+}
+
 @keyframes floating1 {
     0% {
       transform: translateY(0);
@@ -219,6 +302,9 @@ body{
     }
 }
 
+
+
+/*  Media Queries   */
 @media (max-width: 1200px) {
     .bottom-left{
         position: absolute;
@@ -254,6 +340,15 @@ body{
 
     .rule{
         font-size: 1.5rem;
+    }
+
+    .outer-map-div, .outer-steller-div{
+        width: 200px;
+        height: 30vh;
+    }
+    
+    .map-img, .steller-img{
+        height: 15vh;
     }
 }
 
@@ -386,5 +481,14 @@ body{
 
     #midRightVector{
         display: none;
+    }
+
+    .outer-map-div, .outer-steller-div{
+        width: 150px;
+        height: 30vh;
+    }
+    
+    .map-img, .steller-img{
+        height: 15vh;
     }
 }
