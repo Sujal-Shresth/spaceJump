@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+    <script src="selectionPage.js" defer></script>
     <title>Space Jump | Selection</title>
 </head>
 
@@ -18,6 +19,7 @@
         <div id="mapDiv" class="flex row center">
             <div class="outer-map-div flex center column floating2">
                 <div class="map-info flex center column">
+                    <div class="cover" data-mapNumber="0"></div>
                     <img src="assets/cosmicCapital.png" alt="" class="map-img">
                     <p class="map-name">Cosmic Capital</p>
                 </div>
@@ -25,13 +27,15 @@
 
             <div class="outer-map-div flex center column floating3">
                 <div class="map-info flex center column">
+                    <div class="cover"  data-mapNumber="1"></div>
                     <img src="assets/cosmicDoubleTower.png" alt="" class="map-img">
                     <p class="map-name">Cosmic Double Tower</p>
                 </div>
             </div>
 
             <div class="outer-map-div flex center column floating2">
-                <div class="map-info selected flex center column">
+                <div class="map-info flex center column">
+                    <div class="cover"  data-mapNumber="2"></div>
                     <img src="assets/cosmicValley.png" alt="" class="map-img">
                     <p class="map-name">Cosmic Valley</p>
                 </div>
@@ -45,6 +49,7 @@
         <div id="stellerDiv" class="flex row center">
             <div class="outer-steller-div flex center column floating3">
                 <div class="steller-info flex center column">
+                    <div class="cover" data-stellerNumber="0"></div>
                     <img src="assets/aviator.png" alt="" class="steller-img">
                     <p class="map-name">Aviator</p>
                 </div>
@@ -52,6 +57,7 @@
 
             <div class="outer-steller-div flex center column floating2">
                 <div class="steller-info flex center column">
+                    <div class="cover"  data-stellerNumber="1"></div>
                     <img src="assets/vector.png" alt="" class="steller-img">
                     <p class="map-name">Vector</p>
                 </div>
@@ -59,7 +65,8 @@
             </div>
 
             <div class="outer-steller-div flex center column floating3">
-                <div class="steller-info flex center column">
+                <div class="steller-info flex center column" >
+                    <div class="cover"  data-stellerNumber="2"></div>
                     <img src="assets/jester.png" alt="" class="steller-img">
                     <p class="map-name">Jester</p>
                 </div>
@@ -67,7 +74,8 @@
             </div>
 
             <div class="outer-steller-div flex center column floating2">
-                <div class="steller-info  flex center column">
+                <div class="steller-info  flex center column" >
+                    <div class="cover" data-stellerNumber="3"></div>
                     <img src="assets/cometTwins.png" alt="" class="steller-img">
                     <p class="map-name">Cosmic Twins</p>
                 </div>
@@ -75,13 +83,14 @@
             </div>
 
             <div class="outer-steller-div flex center column floating1">
-                <div class="steller-info flex center column">
+                <div class="steller-info flex center column" >
+                    <div class="cover"  data-stellerNumber="4"></div>
                     <img src="assets/prism.png" alt="" class="steller-img">
                     <p class="map-name">Prism</p>
                 </div>
             </div>
         </div>
-        <button class="button" style="width: fit-content; align-self: flex-end;">Start Game</button>
+        <button class="button" id="startGameButton" style="width: fit-content; align-self: flex-end;">Start Game</button>
     </div>
 </body>
 

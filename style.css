@@ -21,6 +21,14 @@
     justify-content: center;
 }
 
+#musicControl{
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgb(192, 192, 192);
+    box-shadow: 2px 2px 5px 2px rgb(102, 91, 91);
+}
+
 /* Majority Styling for Home Page*/
 body{
     background-image: url('assets/cosmicCity.jpg');
@@ -157,6 +165,29 @@ body{
 }
 
 
+/*  Majority Styling for Introduction Page */
+.heading3{
+    font-size: 1.5rem;
+    width: 70%;
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+.nameInput{
+    height: 2rem;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    color: #512727;
+    transition: all 0.3s ease-in-out;
+}
+
+.nameInput:hover{
+    border-radius: 30px;
+    border: 2px solid transparent;
+    box-shadow: none;
+}
+
 
 /*  Majority Styling for Selection Page */
 .blur-bg{
@@ -190,6 +221,7 @@ body{
 }
 
 .map-info, .steller-info{
+    position: relative;
     text-align: center;
     justify-content: space-evenly;
     padding: 1rem;
@@ -201,6 +233,12 @@ body{
     cursor: pointer;
 }
 
+.cover{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
 .steller-info{
     text-wrap: nowrap;
 }
@@ -232,6 +270,13 @@ body{
 #selectionPageContainer h1{
     margin: 2rem;
 }
+
+
+/*  Majority Styling For Game Page  */
+#gamePageContainer{
+    
+}
+
 
 /*  Button Styling  */
 .button {
@@ -396,6 +441,10 @@ body{
 
     .platform-img{
         height: 10vw;
+    }
+
+    .button{
+        font-size: 1.1rem;
     }
 }
 

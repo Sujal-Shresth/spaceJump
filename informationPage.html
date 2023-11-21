@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Jump</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
-    <script src="home.js" defer></script>
+    <script src="informationPage.js" defer></script>
+    <title>Space Jump | Introduction</title>
 </head>
 
 <body class="flex row">
-    <!-- <div class="button" id="musicControl" onclick="playMusic()">&#127925;</div> -->
     <div id="emptySpace"></div>
     <div id="introDiv" class="floating1">
         <img src="assets/character4.png" alt="character4" id="introImg1" class="bottom-left floating2">
@@ -19,21 +18,21 @@
         <div id="startGameDiv" class="flex column center">
             <div id="startGameHeadings" class="headings flex column center">
                 <h1 class="heading1">
-                    Space Jump
+                    Hello Adventurer,
                 </h1>
 
                 <h2 class="heading2">
-                    Elevate Your Adventure in Cosmic Heights!
+                    Introduce Yourself:
                 </h2>
             </div>
 
             <div id="startGameButtons" class="flex column center">
-                <button class="button" id="ruleButton">
-                    Discover The Rules
-                </button>
-
+                <label for="userName" class="heading3">Your Name:</label>
+                <input type="text" placeholder="Enter Your Name" name="userName" class="nameInput" id="userName">
+                <label for="nickName" class="heading3">What can we call you?</label>
+                <input type="text" name="nickName" placeholder="Enter Your NickName" class="nameInput" id="nickName">
                 <button class="button" id="startGameButton">
-                    Start Game
+                    Choose Steller
                 </button>
             </div>
         </div>
