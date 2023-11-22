@@ -199,8 +199,8 @@ body{
     background-attachment: fixed;
     background-size: cover;
     background-position: left;
-    height: 100vh;
-    width: 100vw;
+    height: min(100vh);
+    width: min(100vw);
     position: fixed;
     top: 0;
     filter: blur(3px);
@@ -311,24 +311,12 @@ body{
     justify-content: space-around;
 }
 
-#steller{
-    position: absolute;
-    height: 15vh;
-    bottom: 100px
+#gameCanvas{
+    height: 100%;
+    width: 100%;
+    z-index: 10;
 }
 
-.platform{
-    width: 100px;
-}
-
-#danger1{
-    position: absolute;
-}
-
-#safe1{
-    position: absolute;
-    bottom:75px;
-}
 /*  Button Styling  */
 .button {
     padding: 10px 20px;
@@ -398,7 +386,17 @@ body{
     }
 }
 
-
+@keyframes gameFloat {
+    0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(3px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+}
 
 /*  Media Queries   */
 @media (max-width: 1200px) {
@@ -564,7 +562,11 @@ body{
     #gameBgCover{
         width: 100vw;
     }
+    .platform{
+        width: 120px;
+    }
 }
+
 @media (max-width: 426px){
     .rule{
         font-size: 1rem;
