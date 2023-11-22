@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 *{
     margin: 0;
     padding: 0;
-    font-family: AdLib;
+    font-family: 'Audiowide', sans-serif;
 }
 
 .flex{
@@ -109,7 +111,7 @@ body{
 }
 
 .rule{
-    font-size: 2rem;
+    font-size: 1.rem;
 }
 
 #rule1{
@@ -169,7 +171,7 @@ body{
 
 /*  Majority Styling for Introduction Page */
 .heading3{
-    font-size: 1.5rem;
+    font-size: 1rem;
     width: 70%;
     text-align: center;
     margin-top: 0.75rem;
@@ -415,7 +417,7 @@ body{
     }
 
     .rule{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .outer-map-div, .outer-steller-div{
@@ -546,6 +548,9 @@ body{
     }
 }
 @media (max-width: 426px){
+    .rule{
+        font-size: 1rem;
+    }
     .button{
         font-size: 0.75rem;
     }
