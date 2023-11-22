@@ -43,7 +43,8 @@ const backgrounds = [
 
 setInterval(() => {
     body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random()*4)]})`;
-}, 5000)
+}, 5000);
+
 var selectedMapIndex = null;
 var selectedStellerIndex = null;
 selectionPageContainer.addEventListener("click", (e) => {
@@ -86,7 +87,7 @@ startGameButton.addEventListener("click", () =>{
         selectedStellerIndex = 0;
     }
     else{
-        location.href = "./index.html";
+        location.href = "./gamePage.html";
         console.log(selectedMapIndex+" "+selectedStellerIndex)
     }
 })
