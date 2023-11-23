@@ -199,8 +199,8 @@ body{
     background-attachment: fixed;
     background-size: cover;
     background-position: left;
-    height: min(100vh);
-    width: min(100vw);
+    height: 100vh;
+    width: 100vw;
     position: fixed;
     top: 0;
     filter: blur(3px);
@@ -287,6 +287,19 @@ body{
     filter: brightness(75%) blur(3px);
 }
 
+#steller{
+    height: 20vh;
+    position: absolute;
+    bottom: 5%;
+}
+
+.meteorite-img{
+    width: 100%;
+    position: absolute;
+    filter: brightness(150%);
+    animation: fallMeteorite 7.5s ease-in;
+}
+
 #gameDiv{
     height: 100vh;
     width: 600px;
@@ -303,6 +316,13 @@ body{
     width: 600px;
     top: 0;
     background-color: rgba(255, 255, 255, 0.568);
+    justify-content: space-between;
+}
+
+.meteorite-div{
+    position: relative;
+    height: 100%;
+    width: 20%;
 }
 
 #resultDiv{
@@ -312,9 +332,13 @@ body{
 }
 
 #gameCanvas{
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    z-index: 10;
+}
+
+.platform{
+    width: 150px;
+    position: absolute;
 }
 
 /*  Button Styling  */
@@ -386,17 +410,15 @@ body{
     }
 }
 
-@keyframes gameFloat {
+@keyframes fallMeteorite {
     0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(3px);
+        bottom: 100%;
       }
       100% {
-        transform: translateY(0);
+        bottom: 0;
       }
 }
+
 
 /*  Media Queries   */
 @media (max-width: 1200px) {
@@ -564,6 +586,10 @@ body{
     }
     .platform{
         width: 120px;
+    }
+
+    #steller{
+        height: 15vh;
     }
 }
 
