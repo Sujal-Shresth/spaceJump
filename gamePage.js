@@ -7,6 +7,9 @@ const meteoriteDivs = [...document.getElementsByClassName("coin-div")];
 var gameDivHeight = gameDiv.clientHeight;
 var gameDivWidth = gameDiv.clientWidth;
 
+const leftArrow = document.getElementById("leftArrow");
+const rightArrow = document.getElementById("rightArrow");
+
 const scoreDiv = document.getElementById("score");
 const hpDiv = document.getElementById("hitPoints");
 const resultDiv = document.getElementById("resultDiv");
@@ -73,6 +76,34 @@ function randomNumber(lowerLimit, upperLimit) {
     upperLimit = Math.floor(upperLimit);
     return Math.floor(Math.random() * (upperLimit - lowerLimit)) + lowerLimit;
 } 
+
+leftArrow.addEventListener("mousedown", (e) => {
+    if( stellerLeft > 0 && !stellerMovingLeft){
+        stellerMovingLeft = true;
+        stellerMovingRight = false;
+        moveLeft();
+    }
+})
+
+leftArrow.addEventListener("mouseup", (e) => {
+    if(stellerLeft > 0 && stellerRight > 0 &&(stellerMovingRight || stellerMovingLeft)){
+        stopMoving();
+    }
+})
+
+rightArrow.addEventListener("mousedown", (e) => {
+    if(stellerRight > 0 && !stellerMovingRight ){
+        stellerMovingRight = true;
+        stellerMovingLeft = false;
+        moveRight();
+    }
+})
+
+rightArrow.addEventListener("mouseup", (e) => {
+    if(stellerLeft > 0 && stellerRight > 0 &&(stellerMovingRight || stellerMovingLeft) ){
+        stopMoving();
+    }
+})
 
 document.addEventListener("keydown", (e) => {
     if(e.code === "ArrowLeft" && stellerLeft > 0 && !stellerMovingLeft){

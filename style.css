@@ -291,7 +291,7 @@ body{
 #steller{
     height: 17.5%;
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
 }
 
 .meteorite-img, .coin-img{
@@ -360,6 +360,25 @@ body{
     justify-content: space-around;
 }
 
+.move-arrow{
+    bottom: 3%;
+    position: absolute;
+    width: 20%;
+    transition: transform 0.3s ease-in-out;
+    animation: floating1 3s ease-in-out infinite;
+}
+
+.move-arrow:hover{
+    animation: floating 3s ease-in-out infinite; 
+}
+#leftArrow{
+    left: 5%;
+}
+
+#rightArrow{
+    right: 5%;
+}
+
 /*  Button Styling  */
 .button {
     padding: 10px 20px;
@@ -403,6 +422,18 @@ body{
     }
     100% {
       transform: translateY(0);
+    }
+}
+
+@keyframes floating {
+    0% {
+      transform: translateY(0) scale(0.9);
+    }
+    50% {
+      transform: translateY(5px) scale(0.9);
+    }
+    100% {
+      transform: translateY(0) scale(0.9);
     }
 }
 
