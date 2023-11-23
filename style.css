@@ -363,19 +363,24 @@ body{
 .move-arrow{
     bottom: 3%;
     position: absolute;
+    height: 10%;
     width: 20%;
     transition: transform 0.3s ease-in-out;
     animation: floating1 3s ease-in-out infinite;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .move-arrow:hover{
     animation: floating 3s ease-in-out infinite; 
 }
 #leftArrow{
+    background-image: url('./assets/leftArrow.png');
     left: 5%;
 }
 
 #rightArrow{
+    background-image: url('./assets/rightArrow.png');
     right: 5%;
 }
 
