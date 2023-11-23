@@ -77,7 +77,7 @@ function randomNumber(lowerLimit, upperLimit) {
     return Math.floor(Math.random() * (upperLimit - lowerLimit)) + lowerLimit;
 } 
 
-leftArrow.addEventListener("mousedown", (e) => {
+leftArrow.addEventListener("touchstart", (e) => {
     if( stellerLeft > 0 && !stellerMovingLeft){
         stellerMovingLeft = true;
         stellerMovingRight = false;
@@ -85,7 +85,7 @@ leftArrow.addEventListener("mousedown", (e) => {
     }
 })
 
-leftArrow.addEventListener("mouseup", (e) => {
+leftArrow.addEventListener("touchend", (e) => {
     if(stellerLeft > 0 && stellerRight > 0 &&(stellerMovingRight || stellerMovingLeft)){
         stopMoving();
     }
