@@ -196,49 +196,49 @@ function createCoin(){
         }
         }},500);
     }
-//     function areSiblingsColliding(steller) {
-//         var coins = [...document.getElementsByClassName("coin-img")];
-//         coins.forEach((coin) => {
-//             var stellerRect = steller.getBoundingClientRect();
-//             var coinRect = coin.getBoundingClientRect();
+    function areSiblingsColliding(steller) {
+        var coins = [...document.getElementsByClassName("coin-img")];
+        coins.forEach((coin) => {
+            var stellerRect = steller.getBoundingClientRect();
+            var coinRect = coin.getBoundingClientRect();
     
-//             // Check for collision
-//             if (
-//                 stellerRect.left+50 < coinRect.right &&
-//                 stellerRect.right-50 > coinRect.left &&
-//                 stellerRect.top+50 < coinRect.bottom &&
-//                 stellerRect.bottom+50 > coinRect.top
-//             ) {
-//                 // Collision detected
-//                 coin.remove();
-//                 score += 10;
-//                 scoreDiv.innerText = score;
-//             }
-//         });
+            // Check for collision
+            if (
+                stellerRect.left+50 < coinRect.right &&
+                stellerRect.right-50 > coinRect.left &&
+                stellerRect.top+50 < coinRect.bottom &&
+                stellerRect.bottom+50 > coinRect.top
+            ) {
+                // Collision detected
+                coin.remove();
+                score += 10;
+                scoreDiv.innerText = score;
+            }
+        });
 
-//         var meteorites = [...document.getElementsByClassName("meteorite-img")];
-//         meteorites.forEach((meteorite) => {
-//             var stellerRect = steller.getBoundingClientRect();
-//             var meteoriteRect = meteorite.getBoundingClientRect();
+        var meteorites = [...document.getElementsByClassName("meteorite-img")];
+        meteorites.forEach((meteorite) => {
+            var stellerRect = steller.getBoundingClientRect();
+            var meteoriteRect = meteorite.getBoundingClientRect();
     
-//             // Check for collision
-//             if (
-//                 stellerRect.left+50 < meteoriteRect.right &&
-//                 stellerRect.right-50 > meteoriteRect.left &&
-//                 stellerRect.top+50 < meteoriteRect.bottom &&
-//                 stellerRect.bottom+50 > meteoriteRect.top
-//             ) {
-//                 // Collision detected
-//                 meteorite.remove();
-//                 hitPoints -= randomNumber(75,101);
-//                 if(hitPoints <= 0){
-//                     localStorage.setItem('score',score);
-//                     if(localStorage.getItem('highScore') < score){
-//                         localStorage.setItem('highScore',score);
-//                     }
-//                     location.href = "./gameOverPage.html?map="+mapName+"&steller="+stellerName;
-//                 }
-//                 hpDiv.innerText = hitPoints;
-//             }
-//         });
-// }
+            // Check for collision
+            if (
+                stellerRect.left+50 < meteoriteRect.right &&
+                stellerRect.right-50 > meteoriteRect.left &&
+                stellerRect.top+50 < meteoriteRect.bottom &&
+                stellerRect.bottom+50 > meteoriteRect.top
+            ) {
+                // Collision detected
+                meteorite.remove();
+                hitPoints -= randomNumber(75,101);
+                if(hitPoints <= 0){
+                    localStorage.setItem('score',score);
+                    if(localStorage.getItem('highScore') < score){
+                        localStorage.setItem('highScore',score);
+                    }
+                    location.href = "./gameOverPage.html?map="+mapName+"&steller="+stellerName;
+                }
+                hpDiv.innerText = hitPoints;
+            }
+        });
+}

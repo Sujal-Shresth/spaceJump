@@ -291,7 +291,7 @@ body{
 #steller{
     height: 17.5%;
     position: absolute;
-    bottom: 10%;
+    bottom: 30%;
 }
 
 .meteorite-img, .coin-img{
