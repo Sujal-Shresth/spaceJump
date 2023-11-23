@@ -12,7 +12,7 @@ const maps = [
 
 const stellers = [
     {
-        name: "aviator"
+        name: "avatar"
     },
     {
         name: "vector"
@@ -21,7 +21,7 @@ const stellers = [
         name: "jester"
     },
     {
-        name: "cosmicTwins"
+        name: "cosmic"
     },
     {
         name: "prism"
@@ -87,7 +87,7 @@ startGameButton.addEventListener("click", () =>{
         selectedStellerIndex = 0;
     }
     else{
-        location.href = "./gamePage.html";
+        location.href = "./gamePage.html?map=" + maps[selectedMapIndex].name+"&steller="+stellers[selectedStellerIndex].name;
         console.log(selectedMapIndex+" "+selectedStellerIndex)
     }
 })

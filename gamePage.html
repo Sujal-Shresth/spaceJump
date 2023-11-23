@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
-    <script src="gameFunctionality.js" defer></script>
-    <title>Space Jump</title>
+    <script src="gamePage.js" defer></script>
+    <title>Steller Greed</title>
 </head>
 
 <body>
@@ -15,26 +15,24 @@
     <div id="gamePageContainer">
         <div id="gameDiv">
             <div id="gameBgCover" class="flex center">
-
-                <img src="./assets/jester.png" alt="steller" id="steller" class="floating1">
-                <div class="meteorite-div">
+                <div id="scoreDiv" class="flex column center floating1 stats">
+                    <div>HighScore: <span id="highScore">0</span></div>
+                    <div>Score: <span id="score">0</span></div>
                 </div>
-                <div class="meteorite-div">
+                <div id="livesDiv" class="flex column center floating2 stats">
+                    <div>HitPoints: <span id="hitPoints">500</span></div>
                 </div>
-                <div class="meteorite-div">
+                <img src="./assets/prism.png" alt="steller" id="steller" class="floating1">
+                <div class="coin-div">
                 </div>
-                <div class="meteorite-div">
+                <div class="coin-div">
                 </div>
-                <!-- <div class="flex center column" id="resultDiv">
-                    <p class="heading1 floating1">
-                        Your Steller Died!!
-                    </p>
-                    <p class="heading2 floating2">
-                        Your Score: <span id="finalScore">0</span>
-                    </p>
-                    <button class="button floating1" id="playAgainButton">Play Again</button>
-                    <button class="button floating2" id="homeButton">Return</button>
-                </div> -->
+                <div class="coin-div">
+                </div>
+                <div class="coin-div">
+                </div>
+                <div class="coin-div">
+                </div>
             </div>
         </div>
     </div>

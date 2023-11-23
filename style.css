@@ -141,7 +141,7 @@ body{
 }
 
 .platform-img{
-    height: 10vh;
+    height: 15vh;
 }
 
 #rule3{
@@ -154,6 +154,7 @@ body{
 }
 
 #rule4{
+    font-size: 1.2rem;
     text-align: center;
     padding: 1rem 2rem;
 }
@@ -288,18 +289,23 @@ body{
 }
 
 #steller{
-    height: 20vh;
+    height: 17.5%;
     position: absolute;
     bottom: 5%;
 }
 
-.meteorite-img{
+.meteorite-img, .coin-img{
     width: 100%;
     position: absolute;
-    filter: brightness(150%);
-    animation: fallMeteorite 7.5s ease-in;
+    filter: brightness(120%);
 }
+.coin-img{
+    animation: fallcoin 4s ease-in;
+}
+.meteorite-img{
+    animation: fallcoin 3s ease-in;
 
+}
 #gameDiv{
     height: 100vh;
     width: 600px;
@@ -316,29 +322,42 @@ body{
     width: 600px;
     top: 0;
     background-color: rgba(255, 255, 255, 0.568);
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.meteorite-div{
+.coin-div{
     position: relative;
     height: 100%;
+    width: 17.5%;
+}
+
+.stats{
+    z-index: 10;
+    font-size: 0.75rem;
     width: 20%;
+    text-align: center;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 0.5rem;
+    position: absolute;
+    background-image: linear-gradient(315deg, transparent, gray);
+}
+#scoreDiv{
+    top: 5%;
+    left: 5%;
+}
+
+#livesDiv{
+    top: 5%;
+    right: 5%;
 }
 
 #resultDiv{
+    position: absolute;
+    /* display: none; */
     text-align: center;
     height: 40%;
     justify-content: space-around;
-}
-
-#gameCanvas{
-    height: 100vh;
-    width: 100%;
-}
-
-.platform{
-    width: 150px;
-    position: absolute;
 }
 
 /*  Button Styling  */
@@ -410,7 +429,7 @@ body{
     }
 }
 
-@keyframes fallMeteorite {
+@keyframes fallcoin {
     0% {
         bottom: 100%;
       }
@@ -511,7 +530,7 @@ body{
     }
 
     .platform-img{
-        height: 10vw;
+        height: 20vw;
     }
 
     .button{

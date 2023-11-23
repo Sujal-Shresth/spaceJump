@@ -1,174 +1,213 @@
-// const playAgainButton = document.getElementById("playAgainButton");
-// const homeButton = document.getElementById("homeButton");
+if(localStorage.getItem("highScore")){
+    document.getElementById("highScore").innerText = localStorage.getItem("highScore");
+}
 
-// playAgainButton.addEventListener("click",() =>{
-//     location.href = ""
-// })
+const gameDiv = document.getElementById("gameBgCover");
+const meteoriteDivs = [...document.getElementsByClassName("coin-div")];
+var gameDivHeight = gameDiv.clientHeight;
+var gameDivWidth = gameDiv.clientWidth;
 
-// homeButton.addEventListener("click", () => {
-//     location.href = "./index.html";
-// })
+const scoreDiv = document.getElementById("score");
+const hpDiv = document.getElementById("hitPoints");
+const resultDiv = document.getElementById("resultDiv");
+var score = 0;
 
-// The canvas
-const canvas = document.getElementById("gameCanvas");
-var canvasHeight = canvas.clientHeight;
-var canvasWidth = canvas.clientWidth;
-canvas.height =  canvasHeight;
-canvas.width = canvasWidth
-console.log(canvasHeight)
-console.log(canvasWidth)
-var context = canvas.getContext("2d");
+var updateScore = setInterval(() => {
+    score += 2;
+    scoreDiv.innerText = score
+},1000);
 
-// The Stellers
-var stellers = [
-    "aviator",
-    "vector",
-    "jester",
-    "cosmicTwins",
-    "prism"
+var movingLeft;
+var movingRight;
+
+var hitPoints = 500;
+
+const steller = document.getElementById("steller");
+var stellerLeft = parseFloat(window.getComputedStyle(steller).left);
+var stellerRight = parseFloat(window.getComputedStyle(steller).right);
+var stellerWidth = parseFloat(window.getComputedStyle(steller).width);
+console.log(stellerWidth)
+console.log(gameDivWidth - stellerWidth)
+var stellerMovingLeft = false;
+var stellerMovingRight = false;
+
+const urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams);
+var stellerName = urlParams.get("steller");
+var mapName = urlParams.get("map");
+
+document.getElementById("gameDiv").style.backgroundImage = `url('./assets/${mapName}.png')`;
+var img = [
+    `./assets/${stellerName}.png`,
+    `./assets/${stellerName}Rev.png`,
 ]
 
-// Platforms
-var platformWidth;
+steller.setAttribute("src",img[0]);
+setInterval(() => {
+    areSiblingsColliding(steller);
+},10)
 
-if(canvasWidth >= 600){
-    platformWidth = 150;
-    platformHeight = 40;
-}
-var safe = [
-    "./assets/safe1.png",
-    "./assets/safe2.png",
-    "./assets/safe3.png"
+var coin1 = new Image();
+coin1.src = "./assets/coin1.png";
+coin1.classList.add("coin-img");
+
+var coin2 = new Image();
+coin2.src = "./assets/coin2.png";
+coin2.classList.add("coin-img");
+
+var coin3 = new Image();
+coin3.src = "./assets/coin3.png";
+coin3.classList.add("coin-img");
+
+var coins = [
+    coin1,
+    coin2,
+    coin3
 ]
 
-var danger = [
-    "./assets/danger1.png",
-    "./assets/danger2.png"
-]
+var meteorite = new Image();
+meteorite.src = "./assets/meteorite.png";
+meteorite.classList.add("meteorite-img");
+function randomNumber(lowerLimit, upperLimit) {
+    lowerLimit = Math.ceil(lowerLimit);
+    upperLimit = Math.floor(upperLimit);
+    return Math.floor(Math.random() * (upperLimit - lowerLimit)) + lowerLimit;
+} 
 
-var safePlatforms= [];
-var dangerPlatforms= [];
-var allPlatforms = [];
-
-function loadImages(){
-    safe.forEach((url) => {
-        let img = new Image();
-        img.src = url;
-        img.onload = () => {
-            safePlatforms.push(img);
-            console.log(img);
-        }
-    })
-    danger.forEach((url) => {
-        let img = new Image();
-        img.src = url;
-        img.onload = () => {
-            dangerPlatforms.push(img);
-            console.log(img);
-        }
-    })
-}
-
-loadImages();
-
-var platform;
-
-function randomSafePlatform(){
-    return Math.ceil(Math.random() * safePlatforms.length);
-}
-
-function randomDangerPlatform(){
-    return Math.ceil(Math.random() * dangerPlatforms.length);
-}
-
-
-
-
-// The steller Images
-var stellerRightImg = new Image();
-var stellerLeftImg = new Image();
-
-stellerRightImg.src = "./assets/vectorRev.png";
-stellerLeftImg.src = "./assets/vector.png";
-
-// Dimensions for the Steller Image
-var stellerHeight = 20 *  window.innerHeight / 100;
-var stellerWidth = stellerHeight;
-var stellerX;
-var stellerY;
-
-var steller;
-
-// speed
-
-var vx = 0;
-
-document.addEventListener("keydown",moveSteller);
-
-function moveSteller(e) {
-    if(e.code === "ArrowRight"){
-        vx = 4;
-        steller.img = stellerRightImg;
+document.addEventListener("keydown", (e) => {
+    if(e.code === "ArrowLeft" && stellerLeft > 0 && !stellerMovingLeft){
+        stellerMovingLeft = true;
+        stellerMovingRight = false;
+        moveLeft();
     }
-    else if(e.code === "ArrowLeft"){
-        vx = -4;
-        steller.img = stellerLeftImg;
+    else if(e.code === "ArrowRight" && stellerRight > 0 && !stellerMovingRight ){
+        stellerMovingRight = true;
+        stellerMovingLeft = false;
+        moveRight();
     }
-}
-
-
-// game loop
-stellerRightImg.addEventListener("load", () => {
-    console.log()
-    stellerX = canvasWidth/2 - stellerWidth/2;
-    stellerY = canvasHeight * 7 / 8 - stellerHeight;
-
-    steller = {
-        img: stellerRightImg,
-        x: stellerX,
-        y: stellerY,
-        height: stellerHeight,
-        width: stellerWidth
-    }
-    console.log(steller);
-
-    context.drawImage(steller.img, steller.x, steller.y, steller.height, steller.width);
-
-    requestAnimationFrame(update);
 })
 
-function update(){
+document.addEventListener("keyup", (e) => {
+    if(e.code === "ArrowLeft" && stellerLeft > 0 && stellerRight > 0 &&(stellerMovingRight || stellerMovingLeft)){
+        stopMoving();
+    }
+    else if(e.code === "ArrowRight" && stellerLeft > 0 && stellerRight > 0 &&(stellerMovingRight || stellerMovingLeft) ){
+        stopMoving();
+    }
+})
 
-    if(steller.x > canvasWidth){
-        steller.x = 0;
-    }
-    else if(steller.x + steller.width < 0){
-        steller.x = canvasWidth;
-    }
-    requestAnimationFrame(update);
-    steller.x += vx;
-    context.clearRect(0, 0, canvasWidth, canvasHeight);
-    context.drawImage(steller.img, steller.x, steller.y, steller.height, steller.width);
-
-    for(let i = 0; i < allPlatforms.length; i++){
-        let platform = allPlatforms[i];
-        context.drawImage(platform.img, platform.x, platform.y, platform.width, platform.height);
-    }
+function moveLeft(){
+    steller.setAttribute("src", img[0]);
+    clearInterval(movingRight);
+    movingLeft = setInterval(() => {
+        stellerLeft = parseFloat(window.getComputedStyle(steller).left);
+        // console.log(stellerLeft)
+        stellerLeft -= 2;
+        steller.style.left = stellerLeft + 'px';
+        if(stellerLeft <= 0){
+            clearInterval(movingLeft);
+        }
+    },1)
 }
 
-function placePlatforms(){
-    allPlatforms = [];
-    platform = {
-        img: safePlatforms[0],
-        x: canvasWidth/2,
-        y: canvasHeight-50,
-        width: platformWidth,
-        height: platformHeight
-    }
-
-    allPlatforms.push(platform);
+function moveRight(){
+    steller.setAttribute("src", img[1]);
+    clearInterval(movingLeft);
+    movingRight = setInterval(() => {
+        stellerLeft = parseFloat(window.getComputedStyle(steller).left);
+        // console.log(stellerRight)
+        stellerLeft += 2;
+        steller.style.left = stellerLeft + 'px';
+        if(stellerLeft > gameDivWidth-stellerWidth){
+            clearInterval(movingRight);
+        }
+    },1)
 }
 
+function stopMoving(){
+    stellerMovingLeft = false;
+    stellerMovingRight = false;
+    clearInterval(movingLeft);
+    clearInterval(movingRight);
+}
 
- 
+createCoin()
+var creatingCoin;
 
+function createCoin(){
+    clearTimeout(creatingCoin);
+    // clearInterval(creatingCoin);
+    let numberOfDivs = randomNumber(0,5);
+    let addMeteorite = setInterval(() => {
+        if(numberOfDivs === 0){
+            clearInterval(addMeteorite);
+            creatingCoin = setTimeout(createCoin(),1000);
+        }
+
+        else{
+        numberOfDivs--;
+        let metOrCoin = randomNumber(0,3);
+        if(metOrCoin == 0){
+            let met = meteorite.cloneNode(true);
+        met.setAttribute('id',`coin${score}`);
+        met.addEventListener('animationend',() => {
+            met.remove();
+        });
+        meteoriteDivs[randomNumber(0,5)].appendChild(met);
+        }
+        else{
+            let coinClone = coins[randomNumber(0,3)].cloneNode(true);
+        coinClone.setAttribute('id',`coin${score}`);
+        coinClone.addEventListener('animationend',() => {
+            coinClone.remove();
+        });
+        meteoriteDivs[randomNumber(0,5)].appendChild(coinClone);
+        }
+        }},500);
+    }
+    function areSiblingsColliding(steller) {
+        var coins = [...document.getElementsByClassName("coin-img")];
+        coins.forEach((coin) => {
+            var stellerRect = steller.getBoundingClientRect();
+            var coinRect = coin.getBoundingClientRect();
+    
+            // Check for collision
+            if (
+                stellerRect.left+50 < coinRect.right &&
+                stellerRect.right-50 > coinRect.left &&
+                stellerRect.top+50 < coinRect.bottom &&
+                stellerRect.bottom+50 > coinRect.top
+            ) {
+                // Collision detected
+                coin.remove();
+                score += 10;
+                scoreDiv.innerText = score;
+            }
+        });
+
+        var meteorites = [...document.getElementsByClassName("meteorite-img")];
+        meteorites.forEach((meteorite) => {
+            var stellerRect = steller.getBoundingClientRect();
+            var meteoriteRect = meteorite.getBoundingClientRect();
+    
+            // Check for collision
+            if (
+                stellerRect.left+50 < meteoriteRect.right &&
+                stellerRect.right-50 > meteoriteRect.left &&
+                stellerRect.top+50 < meteoriteRect.bottom &&
+                stellerRect.bottom+50 > meteoriteRect.top
+            ) {
+                // Collision detected
+                meteorite.remove();
+                hitPoints -= randomNumber(75,101);
+                if(hitPoints <= 0){
+                    localStorage.setItem('score',score);
+                    if(localStorage.getItem('highScore') < score){
+                        localStorage.setItem('highScore',score);
+                    }
+                    location.href = "./gameOverPage.html?map="+mapName+"&steller="+stellerName;
+                }
+                hpDiv.innerText = hitPoints;
+            }
+        });
+}

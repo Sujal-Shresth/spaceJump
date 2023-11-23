@@ -1,7 +1,8 @@
 const startGameButton = document.getElementById("startGameButton");
-const userName = document.getElementById("userName");
+const user = document.getElementById("userName");
 const nickName = document.getElementById("nickName");
 var boxShadowValue = "2px 2px 10px 1px rgba(248, 113, 98, 0.659)";
+
 function removeBoxShadow(element) {
     element.style.boxShadow = "none";
 }
@@ -19,24 +20,26 @@ setInterval(() => {
 }, 5000)
 
 startGameButton.addEventListener("click", () => {
-    if(userName.value && nickName.value){
+    if(user.value && nickName.value){
         location.href = "./selectionPage.html"
+        localStorage.setItem('user', user.value);
+        localStorage.setItem(`nickNameFor${user.value.split(' ').join('')}`, nickName.value);
     }
-    else if(!userName.value && !nickName.value){
+    else if(!user.value && !nickName.value){
         nickName.style.boxShadow = boxShadowValue;
-        userName.style.boxShadow = boxShadowValue;
+        user.style.boxShadow = boxShadowValue;
     }
-    else if(!userName.value){
-        userName.style.boxShadow = boxShadowValue;
+    else if(!user.value){
+        user.style.boxShadow = boxShadowValue;
     }
     else if(!nickName.value){
         nickName.style.boxShadow = boxShadowValue;
     }
 })
 
-userName.addEventListener("input", () => {
-    if (userName.value) {
-        removeBoxShadow(userName);
+user.addEventListener("input", () => {
+    if (user.value) {
+        removeBoxShadow(user);
     }
 });
 
