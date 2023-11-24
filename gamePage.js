@@ -6,6 +6,34 @@ window.onload = () => {
     window.scrollTo(0, document.body.scrollHeight);
 };
 
+var playingAudio =  playingAudio = parseInt(localStorage.getItem("playingMusic"));
+const audioButton = document.getElementById("musicControlGamePage");
+
+const homeAudio = new Audio("./assets/gameAudio.mp3");
+const hitAudio = new Audio("./assets/hitSound.mp3");
+hitAudio.volume = 0.3;
+homeAudio.volume = 0.3;
+homeAudio.loop = true;
+
+if(playingAudio === 1) homeAudio.play();
+else audioButton.style.textDecoration = "line-through";
+
+audioButton.addEventListener("click", () => {
+    if(playingAudio === 1){
+    homeAudio.pause();
+    homeAudio.currentTime = 0;
+    audioButton.style.textDecoration = "line-through";
+    localStorage.setItem("playingMusic", 0);
+    playingAudio = 0;
+}
+else{
+    homeAudio.play();
+    audioButton.style.textDecoration = "none";
+    localStorage.setItem("playingMusic", 1);
+    playingAudio = 1;
+}
+});
+
 const gameDiv = document.getElementById("gameBgCover");
 const meteoriteDivs = [...document.getElementsByClassName("coin-div")];
 var gameDivHeight = gameDiv.clientHeight;
@@ -137,7 +165,7 @@ function moveLeft(){
     movingLeft = setInterval(() => {
         stellerLeft = parseFloat(window.getComputedStyle(steller).left);
         // console.log(stellerLeft)
-        stellerLeft -= 2;
+        stellerLeft -= 4;
         steller.style.left = stellerLeft + 'px';
         if(stellerLeft <= 0){
             clearInterval(movingLeft);
@@ -151,7 +179,7 @@ function moveRight(){
     movingRight = setInterval(() => {
         stellerLeft = parseFloat(window.getComputedStyle(steller).left);
         // console.log(stellerRight)
-        stellerLeft += 2;
+        stellerLeft += 4;
         steller.style.left = stellerLeft + 'px';
         if(stellerLeft > gameDivWidth-stellerWidth){
             clearInterval(movingRight);
@@ -181,7 +209,8 @@ function createCoin(){
 
         else{
         numberOfDivs--;
-        let metOrCoin = randomNumber(0,3);
+        let metOrCoin = randomNumber(0,2);
+        // let metOrCoin = randomNumber(0,3);
         if(metOrCoin == 0){
             let met = meteorite.cloneNode(true);
         met.setAttribute('id',`coin${score}`);
@@ -200,6 +229,7 @@ function createCoin(){
         }
         }},500);
     }
+    
     function areSiblingsColliding(steller) {
         var coins = [...document.getElementsByClassName("coin-img")];
         coins.forEach((coin) => {
@@ -233,6 +263,9 @@ function createCoin(){
                 stellerRect.bottom+50 > meteoriteRect.top
             ) {
                 // Collision detected
+                hitAudio.currentTime = 0;
+                hitAudio.pause();
+                if(playingAudio === 1) hitAudio.play();
                 meteorite.remove();
                 hitPoints -= randomNumber(75,101);
                 if(hitPoints <= 0){

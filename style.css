@@ -24,11 +24,28 @@
 }
 
 #musicControl{
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
+    position: absolute;
+    top: 0.75rem;
+    z-index: 100;
+    left: 0.75rem;
     background-color: rgb(192, 192, 192);
     box-shadow: 2px 2px 5px 2px rgb(102, 91, 91);
+}
+
+#musicControlSelectionPage{
+    position: fixed;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: rgb(192, 192, 192);
+    box-shadow: 2px 2px 5px 2px rgb(102, 91, 91);
+}
+
+#musicControlGamePage{
+    font-size: 0.75rem;
+    background-color: transparent;
+    background-image: linear-gradient(315deg, transparent, gray);
+    height: 1rem;
+    max-width: 15px;
 }
 
 /* Majority Styling for Home Page*/
@@ -300,10 +317,10 @@ body{
     filter: brightness(120%);
 }
 .coin-img{
-    animation: fallcoin 4s ease-in;
+    animation: fallcoin 2s ease-in;
 }
 .meteorite-img{
-    animation: fallcoin 3s ease-in;
+    animation: fallcoin 1s ease-in;
 
 }
 #gameDiv{
@@ -399,7 +416,7 @@ body{
 
 .button:hover {
     transform: scale(1.2);
-    background: linear-gradient(45deg, #555, #747373);
+    background: linear-gradient(45deg, #2c2929b9, #c39b9ba7);
     border-radius: 1rem 0.25rem;
 } 
 
