@@ -11,41 +11,54 @@
 </head>
 
 <body>
+    <!-- Div to apply blur filter on Background -->
     <div id="blur-bg" class="blur"></div>
-    <div id="gamePageContainer">
 
+    <!-- Game Container (Arena) Div -->
+    <div id="gamePageContainer">
         <div id="gameDiv">
             <div id="gameBgCover" class="flex center">
 
+                <!-- Div to display Scores and exit button -->
                 <div id="scoreDiv" class="flex column center floating1 stats">
                     <div>
+                        <!-- HighScore Div -->
                         <div>HighScore: <span id="highScore">0</span></div>
-                    <div>Score: <span id="score">0</span></div>
+
+                        <!-- Score Div -->
+                        <div>Score: <span id="score">0</span></div>
+
+                        <!-- End Game Button -->
                         <div class="button stats" id="exitGame">Exit</div>
                     </div>
-                    
-                    
                 </div>
+
+                <!-- Div to display hit points and music control button -->
                 <div id="livesDiv" class="flex column center floating2 stats">
-                    <div>HitPoints: <span id="hitPoints">500</span>
+                    <div>
+                        HitPoints: <span id="hitPoints">500</span>
+
+                        <!-- Music Control Button -->
                         <div class="button stats" id="musicControlGamePage">&#x266B;</div>
                     </div>
-                
                 </div>
+
+                <!-- Divs to define paths for coins and meteorite -->
+                <div class="coin-div">
+                </div>
+                <div class="coin-div">
+                </div>
+                <div class="coin-div">
+                </div>
+                <div class="coin-div">
+                </div>
+                <div class="coin-div">
+                </div>
+
+                <!-- Steller Image -->
                 <img src="./assets/prism.png" alt="steller" id="steller" class="floating1">
-                <div class="coin-div">
-                </div>
-                <div class="coin-div">
-                </div>
-                <div class="coin-div">
-                </div>
-                <div class="coin-div">
-                </div>
-                <div class="coin-div">
-                </div>
                 <div class="move-arrow floating" id="leftArrow"></div>
                 <div class="move-arrow floating" id="rightArrow"></div>
-
             </div>
         </div>
     </div>

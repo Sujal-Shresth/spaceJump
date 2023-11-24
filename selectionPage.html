@@ -11,13 +11,21 @@
 </head>
 
 <body>
+    <!-- Div to apply blur background filter -->
     <div id="blur-bg"></div>
+
+    <!-- Div for selecting Map and Steller -->
     <div id="selectionPageContainer" class="flex column">
+        <!-- Music Contorl Button -->
         <div class="button" id="musicControlSelectionPage">&#x266B;</div>
+
         <h1>
             Select The Map:
         </h1>
+
+        <!-- Div for selecting Map-->
         <div id="mapDiv" class="flex row center">
+            <!-- Map 1 -->
             <div class="outer-map-div flex center column floating2">
                 <div class="map-info flex center column">
                     <div class="cover" data-mapNumber="0"></div>
@@ -26,6 +34,7 @@
                 </div>
             </div>
 
+            <!-- Map 2 -->
             <div class="outer-map-div flex center column floating3">
                 <div class="map-info flex center column">
                     <div class="cover" data-mapNumber="1"></div>
@@ -34,6 +43,7 @@
                 </div>
             </div>
 
+            <!-- Map 3 -->
             <div class="outer-map-div flex center column floating2">
                 <div class="map-info flex center column">
                     <div class="cover" data-mapNumber="2"></div>
@@ -47,7 +57,9 @@
             Select your Steller:
         </h1>
 
+        <!-- Div for selecting Steller -->
         <div id="stellerDiv" class="flex row center">
+            <!-- Steler 1 -->
             <div class="outer-steller-div flex center column floating3">
                 <div class="steller-info flex center column">
                     <div class="cover" data-stellerNumber="0"></div>
@@ -56,6 +68,7 @@
                 </div>
             </div>
 
+            <!-- Steler 2 -->
             <div class="outer-steller-div flex center column floating2">
                 <div class="steller-info flex center column">
                     <div class="cover" data-stellerNumber="1"></div>
@@ -65,24 +78,25 @@
 
             </div>
 
+            <!-- Steler 3 -->
             <div class="outer-steller-div flex center column floating3">
                 <div class="steller-info flex center column">
                     <div class="cover" data-stellerNumber="2"></div>
                     <img src="assets/jester.png" alt="" class="steller-img">
                     <p class="map-name">Jester</p>
                 </div>
-
             </div>
 
+            <!-- Steler 4 -->
             <div class="outer-steller-div flex center column floating2">
                 <div class="steller-info  flex center column">
                     <div class="cover" data-stellerNumber="3"></div>
                     <img src="assets/cosmic.png" alt="" class="steller-img">
                     <p class="map-name">Cosmic</p>
                 </div>
-
             </div>
 
+            <!-- Steler 5 -->
             <div class="outer-steller-div flex center column floating1">
                 <div class="steller-info flex center column">
                     <div class="cover" data-stellerNumber="4"></div>
@@ -91,6 +105,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Start Game Button -->
         <button class="button" id="startGameButton" style="width: fit-content; align-self: flex-end;">Start
             Game</button>
     </div>
