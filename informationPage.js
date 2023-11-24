@@ -53,13 +53,17 @@ startGameButton.addEventListener("click", () => {
     }
     else if(!user.value && !nickName.value){
         nickName.style.boxShadow = boxShadowValue;
+        nickName.placeholder = "YOUR NICK NAME!!";
         user.style.boxShadow = boxShadowValue;
+        user.placeholder = "YOUR NAME!!";
     }
     else if(!user.value){
         user.style.boxShadow = boxShadowValue;
+        nickName.placeholder = "YOUR NAME!!";
     }
     else if(!nickName.value){
         nickName.style.boxShadow = boxShadowValue;
+        nickName.placeholder = "YOUR NICK NAME!!";
     }
 })
 

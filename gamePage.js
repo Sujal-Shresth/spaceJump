@@ -34,6 +34,15 @@ else{
 }
 });
 
+const exitGameButton = document.getElementById("exitGame");
+
+exitGameButton.addEventListener("click",() => {
+    localStorage.setItem('score',score);
+                    if(localStorage.getItem('highScore') < score){
+                        localStorage.setItem('highScore',score);
+                    }
+                    location.href = "./gameOverPage.html?map="+mapName+"&steller="+stellerName;
+})
 const gameDiv = document.getElementById("gameBgCover");
 const meteoriteDivs = [...document.getElementsByClassName("coin-div")];
 var gameDivHeight = gameDiv.clientHeight;

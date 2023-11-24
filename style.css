@@ -48,6 +48,12 @@
     max-width: 15px;
 }
 
+#exitGame{
+    font-size: 0.75rem;
+    background-image: linear-gradient(315deg, transparent, gray);
+    background-color: transparent;
+    color: rgb(67, 67, 67);
+}
 /* Majority Styling for Home Page*/
 body{
     background-image: url('assets/cosmicCity.jpg');
@@ -415,7 +421,7 @@ body{
 }
 
 .button:hover {
-    transform: scale(1.2);
+    transform: scale(1.05);
     background: linear-gradient(45deg, #2c2929b9, #c39b9ba7);
     border-radius: 1rem 0.25rem;
 } 

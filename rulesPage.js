@@ -40,7 +40,7 @@ setInterval(() => {
 }, 5000)
 
 document.addEventListener("click", (e) => {
-    if(e.target.classList.contains("button") && e.target.classList.contains("next")){
+    if(e.target.classList.contains("next")){
         if(ruleNumber === 4 ){
             location.href = "./informationPage.html";
         }
@@ -49,5 +49,13 @@ document.addEventListener("click", (e) => {
             ruleNumber++;
             rules[ruleNumber].style.display = "flex";
         }  
+    }
+
+    if(e.target.classList.contains("previous")){
+        if(ruleNumber != 0 ){
+            rules[ruleNumber].style.display = "none";
+            ruleNumber--;
+            rules[ruleNumber].style.display = "flex";
+        }
     }
 })
