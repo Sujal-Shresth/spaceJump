@@ -2,6 +2,10 @@ if(localStorage.getItem("highScore")){
     document.getElementById("highScore").innerText = localStorage.getItem("highScore");
 }
 
+window.onload = () => {
+    window.scrollTo(0, document.body.scrollHeight);
+};
+
 const gameDiv = document.getElementById("gameBgCover");
 const meteoriteDivs = [...document.getElementsByClassName("coin-div")];
 var gameDivHeight = gameDiv.clientHeight;

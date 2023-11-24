@@ -15,7 +15,7 @@ const stellers = [
         name: "avatar"
     },
     {
-        name: "vector"
+        name: "cosmicTwins"
     },
     {
         name: "jester"
