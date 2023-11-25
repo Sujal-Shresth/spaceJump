@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+    <script src="savedUserNamePage.js" defer></script>
+    <title>Steller Greed | Welcome</title>
+</head>
+
+<body class="flex row" id="body">
+    <!-- Music Contorl Button -->
+    <div class="button" id="musicControl">&#x266B;</div>
+
+    <!-- Div for formatting -->
+    <div id="emptySpace"></div>
+
+    <!-- Div for taking input from User -->
+    <div id="introDiv" class="floating1">
+        <img src="assets/character4.png" alt="character4" id="introImg1" class="bottom-left floating2">
+        <img src="assets/vectors.png" alt="character5" id="introImg2" class="bottom-right floating3">
+        <div id="startGameDiv" class="flex column center">
+            <div id="startGameHeadings" class="headings flex column center">
+                <h1 class="heading1">
+                    Hello<span id="userNickname"></span>!!!
+                </h1>
+            </div>
+
+            <!-- Div for taking name and nickName from User -->
+            <div id="startGameButtons" class="flex column center">
+                <h2 class="heading2" style="text-align: center;">
+                    Not <span id="nickName"></span>?
+                </h2>
+                <button class="button" id="introduceButton">
+                    Introduce YourSelf
+                </button>
+                <!-- Choose Steller Button -->
+                <button class="button" id="startGameButton">
+                    Choose Steller
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

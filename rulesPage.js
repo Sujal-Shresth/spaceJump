@@ -59,7 +59,13 @@ document.addEventListener("click", (e) => {
     // If button contains "next" class, display next rule
     if (e.target.classList.contains("next")) {
         if (ruleNumber === 4) {
-            location.href = "./informationPage.html";
+            // If old player, go to welcome Page
+            if (localStorage.getItem("user")) {
+                location.href = "./savedUserNamePage.html";
+            }
+            else {
+                location.href = "./informationPage.html";
+            }
         }
         else {
             rules[ruleNumber].style.display = "none";

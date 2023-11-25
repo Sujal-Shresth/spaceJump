@@ -71,5 +71,11 @@ ruleButton.addEventListener("click", () => {
 
 // clicking on startGameGutton redirects to informationPage
 startGameButton.addEventListener("click", () => {
-    location.href = "./informationPage.html";
+    // If old player, go to welcome Page
+    if (localStorage.getItem("user")) {
+        location.href = "./savedUserNamePage.html";
+    }
+    else {
+        location.href = "./informationPage.html";
+    }
 });
