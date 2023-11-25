@@ -105,7 +105,27 @@ var coins = [
 // Meteorite images
 var meteorite = new Image();
 meteorite.src = "./assets/meteorite.png";
-meteorite.classList.add("meteorite-img");
+meteorite.classList.add("meteorite-img1");
+
+// Timer to increase the difficulty
+var difficulty = 1;
+setTimeout(() => {
+    difficulty = 2;
+    meteorite.classList.remove("meteorite-img1");
+    meteorite.classList.add("meteorite-img2");
+}, 20000);
+
+setTimeout(() => {
+    difficulty = 3;
+    meteorite.classList.remove("meteorite-img2");
+    meteorite.classList.add("meteorite-img3");
+}, 40000);
+
+setTimeout(() => {
+    difficulty = 4;
+    meteorite.classList.remove("meteorite-img3");
+    meteorite.classList.add("meteorite-img4");
+}, 60000);
 
 // Stats Divs
 const highScoreDiv = document.getElementById("highScore");
@@ -181,6 +201,7 @@ rightArrow.addEventListener("touchend", (e) => {
         stopMoving();
     }
 })
+
 
 // Making the rightArrow key functional
 // On keydown start moving
@@ -306,7 +327,18 @@ function areColliding(steller) {
     });
 
     // For Meteorites
-    var meteorites = [...document.getElementsByClassName("meteorite-img")];
+    if (difficulty === 1) {
+        var meteorites = [...document.getElementsByClassName("meteorite-img1")];
+    }
+    else if (difficulty === 2) {
+        var meteorites = [...document.getElementsByClassName("meteorite-img2")];
+    }
+    else if (difficulty === 3) {
+        var meteorites = [...document.getElementsByClassName("meteorite-img3")];
+    }
+    else if (difficulty === 4) {
+        var meteorites = [...document.getElementsByClassName("meteorite-img4")];
+    }
     meteorites.forEach((meteorite) => {
         var stellerRect = steller.getBoundingClientRect();
         var meteoriteRect = meteorite.getBoundingClientRect();
